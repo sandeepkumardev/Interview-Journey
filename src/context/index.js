@@ -60,7 +60,9 @@ export const DataProvider = ({ children }) => {
 
   React.useEffect(() => {
     let data = JSON.parse(window.localStorage.getItem("companydata"));
-    setCompanyData(data);
+    if (data) {
+      setCompanyData(data);
+    }
   }, []);
 
   return (
