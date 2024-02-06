@@ -1,10 +1,10 @@
-import { IconButton, MenuItem } from "@material-ui/core";
-import React from "react";
-import AddIcon from "@material-ui/icons/Add";
-import Menu from "@material-ui/core/Menu";
-import RejectedDialog from "./RejectedDialog";
-import InterviewDialog from "./InterviewDialog";
-import GetPlacedDialog from "./GetPlacedDialog";
+import { IconButton, MenuItem } from '@material-ui/core';
+import React from 'react';
+import AddIcon from '@material-ui/icons/Add';
+import Menu from '@material-ui/core/Menu';
+import RejectedDialog from './RejectedDialog';
+import InterviewDialog from './InterviewDialog';
+import GetPlacedDialog from './GetPlacedDialog';
 
 export default function AddProperty({ shortlisted, _id, interview_round }) {
   const [anchorEl, setAnchorEl] = React.useState(false);
@@ -49,11 +49,7 @@ export default function AddProperty({ shortlisted, _id, interview_round }) {
   //....................
   return (
     <>
-      <IconButton
-        aria-controls="simple-menu"
-        aria-haspopup="true"
-        onClick={MenuOpen}
-      >
+      <IconButton aria-controls="simple-menu" aria-haspopup="true" onClick={MenuOpen}>
         <AddIcon />
       </IconButton>
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const DataContext = React.createContext(null);
 
@@ -18,22 +18,23 @@ export const DataProvider = ({ children }) => {
     let list = CompanyData.find((item) => item._id === _id);
 
     switch (type) {
-      case "shortlisted":
+      case 'shortlisted':
         list = { ...list, shortlisted: res };
         break;
-      case "rejected":
+      case 'rejected':
         list = {
           ...list,
           rejected: res,
           shortlisted: { ...list.shortlisted, reject: true },
         };
         break;
-      case "interviewUpdate":
+      case 'interviewUpdate': {
         let updatedList = list.interview_round;
         updatedList.push(res);
         list = { ...list, interview_round: updatedList };
         break;
-      case "getPlaced":
+      }
+      case 'getPlaced':
         list = { ...list, get_placed: res };
         break;
 
@@ -41,34 +42,29 @@ export const DataProvider = ({ children }) => {
         return;
     }
 
-    const updatedData = CompanyData.map((item) =>
-      item._id === _id ? list : item
-    );
+    const updatedData = CompanyData.map((item) => (item._id === _id ? list : item));
 
     setCompanyData(updatedData);
   };
 
   const deleteData = (data) => {
-    setCompanyData(CompanyData.filter((item) => item._id !== data));
+    const filteredList = CompanyData.filter((item) => item._id !== data);
+    setCompanyData(filteredList);
   };
 
   React.useEffect(() => {
-    if (CompanyData.length > 0) {
-      window.localStorage.setItem("companydata", JSON.stringify(CompanyData));
-    }
+    window.localStorage.setItem('companydata', JSON.stringify(CompanyData || []));
   }, [CompanyData]);
 
   React.useEffect(() => {
-    let data = JSON.parse(window.localStorage.getItem("companydata"));
+    let data = JSON.parse(window.localStorage.getItem('companydata'));
     if (data) {
       setCompanyData(data);
     }
   }, []);
 
   return (
-    <DataContext.Provider
-      value={{ CompanyData, addData, updateData, deleteData }}
-    >
+    <DataContext.Provider value={{ CompanyData, addData, updateData, deleteData }}>
       {children}
     </DataContext.Provider>
   );

@@ -1,34 +1,34 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Fab from "@material-ui/core/Fab";
-import AddIcon from "@material-ui/icons/Add";
-import { Box } from "@material-ui/core";
-import Button from "@material-ui/core/Button";
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import TextField from "@material-ui/core/TextField";
-import DialogContent from "@material-ui/core/DialogContent";
-import { useData } from "../context";
-import { v4 as uuidv4 } from "uuid";
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
+import { Box } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import TextField from '@material-ui/core/TextField';
+import DialogContent from '@material-ui/core/DialogContent';
+import { useData } from '../context';
+import { v4 as uuidv4 } from 'uuid';
 
-import DialogTitle from "@material-ui/core/DialogTitle";
+import DialogTitle from '@material-ui/core/DialogTitle';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
-    "& .MuiFab-root": {
-      height: "40px",
-      width: "40px",
+    '& .MuiFab-root': {
+      height: '40px',
+      width: '40px',
     },
   },
   dialog: {
-    "& .MuiDialog-paper": {
-      width: "300px",
+    '& .MuiDialog-paper': {
+      width: '300px',
     },
-    "& .MuiFormControl-root": {
-      width: "100%",
+    '& .MuiFormControl-root': {
+      width: '100%',
     },
-    "& .MuiFormHelperText-root": {
-      color: "#f44336",
+    '& .MuiFormHelperText-root': {
+      color: '#f44336',
     },
   },
 }));
@@ -63,10 +63,10 @@ function NewDialog({ open, handleClose }) {
   const classes = useStyles();
   const { addData } = useData();
 
-  const [Cname, setCname] = React.useState("");
-  const [Rname, setRname] = React.useState("");
-  const [desc, setdesc] = React.useState("");
-  const [error, seterror] = React.useState("");
+  const [Cname, setCname] = React.useState('');
+  const [Rname, setRname] = React.useState('');
+  const [desc, setdesc] = React.useState('');
+  const [error, seterror] = React.useState('');
 
   const SaveHandler = () => {
     let biaData = {
@@ -76,18 +76,18 @@ function NewDialog({ open, handleClose }) {
       description: desc,
       shortlisted: { reject: false, resolve: false },
       interview_round: [],
-      get_placed: { status: false, summary: "" },
-      rejected: { status: false, reason: "" },
+      get_placed: { status: false, summary: '' },
+      rejected: { status: false, reason: '' },
     };
     if (Cname) {
-      seterror("");
+      seterror('');
       addData(biaData);
-      setCname("");
-      setRname("");
-      setdesc("");
+      setCname('');
+      setRname('');
+      setdesc('');
       handleClose();
     } else {
-      seterror("Enter Company Name !");
+      seterror('Enter Company Name !');
     }
   };
 
@@ -115,7 +115,7 @@ function NewDialog({ open, handleClose }) {
           id="outlined-multiline-static"
           placeholder="Company description (Optional)"
           multiline
-          rows={5}
+          minRows={5}
           value={desc}
           onChange={(e) => setdesc(e.target.value)}
         />
@@ -124,7 +124,7 @@ function NewDialog({ open, handleClose }) {
         <Button onClick={handleClose} color="primary">
           Close
         </Button>
-        <Button onClick={SaveHandler} color="primary" autoFocus>
+        <Button onClick={SaveHandler} variant="contained" size="small" color="primary" autoFocus>
           Save
         </Button>
       </DialogActions>

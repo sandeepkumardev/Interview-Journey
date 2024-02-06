@@ -1,44 +1,44 @@
-import { IconButton, Switch, Typography } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import { Box } from "@material-ui/core";
-import React from "react";
-import Breadcrumbs from "@material-ui/core/Breadcrumbs";
-import DeleteIcon from "@material-ui/icons/Delete";
-import { useData } from "../../context";
-import AddProperty from "./AddProperty";
-import PopOver from "./PopOver";
-import Description from "./Description";
-import GetPlaced from "./GetPlaced";
+import { IconButton, Switch, Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import { Box } from '@material-ui/core';
+import React from 'react';
+import Breadcrumbs from '@material-ui/core/Breadcrumbs';
+import DeleteIcon from '@material-ui/icons/Delete';
+import { useData } from '../../context';
+import AddProperty from './AddProperty';
+import PopOver from './PopOver';
+import Description from './Description';
+import GetPlaced from './GetPlaced';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
-    "& .MuiTypography-colorTextSecondary": {
-      color: "#000",
+    '& .MuiTypography-colorTextSecondary': {
+      color: '#000',
     },
-    "& .MuiButton-root": {
+    '& .MuiButton-root': {
       padding: 0,
     },
-    "& .MuiBreadcrumbs-ol": {
-      display: "flex",
-      flexWrap: "nowrap",
-      overflowY: "scroll",
-      scrollBehavior: "smooth",
+    '& .MuiBreadcrumbs-ol': {
+      display: 'flex',
+      flexWrap: 'nowrap',
+      overflowY: 'scroll',
+      scrollBehavior: 'smooth',
     },
-    "& ::-webkit-scrollbar": {
-      display: "none",
+    '& ::-webkit-scrollbar': {
+      display: 'none',
     },
-    "& .MuiBreadcrumbs-li": {
+    '& .MuiBreadcrumbs-li': {
       // minWidth: "140px",
     },
-    backgroundColor: "#EAEAEA",
+    backgroundColor: '#EAEAEA',
   },
   btn: {
-    border: "none",
-    borderRadius: "25px",
-    fontSize: "12px",
-    backgroundColor: "#1976d2",
-    color: "#fff",
-    cursor: "pointer",
+    border: 'none',
+    borderRadius: '25px',
+    fontSize: '12px',
+    backgroundColor: '#1976d2',
+    color: '#fff',
+    cursor: 'pointer',
   },
 }));
 
@@ -60,7 +60,7 @@ function SingleList({ data }) {
   const handleChange = () => {
     updateData({
       _id,
-      type: "shortlisted",
+      type: 'shortlisted',
       res: { reject: false, resolve: true },
     });
   };
@@ -85,23 +85,19 @@ function SingleList({ data }) {
         <div>
           <Typography variant="h6">{company_name}</Typography>
           <Typography variant="caption" display="block">
-            {refrence_name}{" "}
+            {refrence_name}{' '}
             {description && (
               <button className={classes.btn} onClick={handleClickOpen}>
                 Desc
               </button>
             )}
           </Typography>
-          <Description
-            handleClose={handleClose}
-            descOpen={descOpen}
-            info={description}
-          />
+          <Description handleClose={handleClose} descOpen={descOpen} info={description} />
         </div>
 
         {/* shortlisted icon  */}
         {shortlisted.resolve && (
-          <Typography variant="subtitle2" style={{ color: "#388e3c" }}>
+          <Typography variant="subtitle2" style={{ color: '#388e3c' }}>
             Shortlisted
           </Typography>
         )}
@@ -115,7 +111,7 @@ function SingleList({ data }) {
                 checked={shortlisted.resolve}
                 onChange={handleChange}
                 color="primary"
-                inputProps={{ "aria-label": "primary checkbox" }}
+                inputProps={{ 'aria-label': 'primary checkbox' }}
               />
             </Typography>
           </div>
@@ -124,22 +120,14 @@ function SingleList({ data }) {
         {/* interview rounds  */}
         {interview_round.map((item) => (
           <Box textAlign="center" key={item.id}>
-            <PopOver
-              name={item.name}
-              text={item.response}
-              color={false}
-              btnName="Result"
-            />
+            <PopOver name={item.name} text={item.response} color={false} btnName="Result" />
           </Box>
         ))}
 
         {/* getPlaced  */}
         {get_placed.status && (
           <Box textAlign="center">
-            <GetPlaced
-              packagee={get_placed.package}
-              details={get_placed.details}
-            />
+            <GetPlaced packagee={get_placed.package} details={get_placed.details} />
           </Box>
         )}
 
@@ -147,18 +135,9 @@ function SingleList({ data }) {
         {!get_placed.status ? (
           <Box textAlign="center">
             {rejected.status ? (
-              <PopOver
-                name="Rejected"
-                text={rejected.reason}
-                color={true}
-                btnName="Reason"
-              />
+              <PopOver name="Rejected" text={rejected.reason} color={true} btnName="Reason" />
             ) : (
-              <AddProperty
-                interview_round={interview_round}
-                shortlisted={shortlisted}
-                _id={_id}
-              />
+              <AddProperty interview_round={interview_round} shortlisted={shortlisted} _id={_id} />
             )}
           </Box>
         ) : (

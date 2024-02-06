@@ -1,20 +1,20 @@
-import { Chip, Popover, Typography } from "@material-ui/core";
-import { Box } from "@material-ui/core";
-import React from "react";
-import Button from "@material-ui/core/Button";
-import { makeStyles } from "@material-ui/core";
+import { Chip, Popover, Typography } from '@material-ui/core';
+import { Box } from '@material-ui/core';
+import React from 'react';
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
-    "& .MuiChip-root": {
-      backgroundColor: "#388e3c",
-      color: "#fff",
-      fontWeight: "bold",
+    '& .MuiChip-root': {
+      backgroundColor: '#388e3c',
+      color: '#fff',
+      fontWeight: 'bold',
     },
-    backgroundColor: "#81c784",
-    borderRadius: "10px",
-    padding: "4px",
-    color: "#000fff",
+    backgroundColor: '#81c784',
+    borderRadius: '10px',
+    padding: '4px',
+    color: '#000fff',
   },
 }));
 
@@ -32,7 +32,7 @@ export default function GetPlaced({ packagee, details }) {
   };
 
   const open = Boolean(anchorEl);
-  const id = open ? "simple-popover" : undefined;
+  const id = open ? 'simple-popover' : undefined;
   return (
     <>
       <div className={classes.root}>
@@ -40,7 +40,7 @@ export default function GetPlaced({ packagee, details }) {
         <div>
           <Chip size="small" label={badge} />
           {details && (
-            <Button onClick={handleClick} style={{ fontSize: "13px" }}>
+            <Button onClick={handleClick} style={{ fontSize: '13px' }}>
               Details
             </Button>
           )}
@@ -52,12 +52,12 @@ export default function GetPlaced({ packagee, details }) {
         anchorEl={anchorEl}
         onClose={handleClose}
         anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "center",
+          vertical: 'bottom',
+          horizontal: 'center',
         }}
         transformOrigin={{
-          vertical: "top",
-          horizontal: "center",
+          vertical: 'top',
+          horizontal: 'center',
         }}
       >
         <Box p={1}>
