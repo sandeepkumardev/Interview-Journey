@@ -9,6 +9,7 @@ import AddProperty from './AddProperty';
 import PopOver from './PopOver';
 import Description from './Description';
 import GetPlaced from './GetPlaced';
+import { SHORTLISTED } from '../../constants';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -60,7 +61,7 @@ function SingleList({ data }) {
   const handleChange = () => {
     updateData({
       _id,
-      type: 'shortlisted',
+      type: SHORTLISTED,
       res: { reject: false, resolve: true },
     });
   };

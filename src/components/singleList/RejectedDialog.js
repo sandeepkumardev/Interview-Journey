@@ -6,13 +6,14 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { TextField } from '@material-ui/core';
 import { useData } from '../../context';
+import { REJECTED } from '../../constants';
 
 export default function RejectedDialog({ rejectedDialog, rejectedDialogClose, _id }) {
   const [text, settext] = React.useState('');
   const { updateData } = useData();
 
   const reason = () => {
-    updateData({ _id, type: 'rejected', res: { status: true, reason: text } });
+    updateData({ _id, type: REJECTED, res: { status: true, reason: text } });
     rejectedDialogClose();
   };
 

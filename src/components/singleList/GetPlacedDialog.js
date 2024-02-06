@@ -6,6 +6,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { Chip, InputAdornment, makeStyles, OutlinedInput, TextField } from '@material-ui/core';
 import { useData } from '../../context';
+import { GET_PLACED } from '../../constants';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -35,7 +36,7 @@ export default function GetPlacedDialog({ getPlacedDialog, getPlacedClose, _id }
       seterror('');
       updateData({
         _id,
-        type: 'getPlaced',
+        type: GET_PLACED,
         res: { status: true, package: packagee, details },
       });
       getPlacedClose();

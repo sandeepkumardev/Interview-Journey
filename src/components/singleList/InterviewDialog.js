@@ -7,6 +7,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import { makeStyles, TextField } from '@material-ui/core';
 import { useData } from '../../context';
 import { v4 as uuidv4 } from 'uuid';
+import { INTERVIEW_UPDATE } from '../../constants';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -34,7 +35,7 @@ export default function InterviewDialog({ interviewDialog, interviewRoundClose, 
       seterror('');
       updateData({
         _id,
-        type: 'interviewUpdate',
+        type: INTERVIEW_UPDATE,
         res: { id: uuidv4(), name, response: text },
       });
       interviewRoundClose();
