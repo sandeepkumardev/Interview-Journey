@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# Interview Journey Tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
 
-## Available Scripts
+Welcome to the Interview Journey Tracker! This tool helps you keep track of your interview experiences, including the companies you've applied to, your shortlisted statuses, and details about each interview round.
 
-In the project directory, you can run:
+### Features
 
-### `yarn start`
+- Add companies you've applied to.
+- Track the status of your applications.
+- Record details of each interview round.
+- Mark interviews as 'Hired' or 'Rejected' with additional details.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Usage
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Adding a Company
 
-### `yarn test`
+To add a company, click on the **+** icon in the header. A form will appear where you can fill in the following details:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Company Name**: The name of the company you applied to.
+- **Description**: Optional description or notes about the company.
+- **Reference**: Optional reference information.
 
-### `yarn build`
+### Adding Interview Rounds
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Once you've added a company, you can start tracking interview rounds. To add an interview round, click on the **+** icon within the company section. You'll be prompted to enter the following details:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Round Name**: The name of the interview round.
+- **Feedback**: Any feedback or notes about the interview.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Updating Status
 
-### `yarn eject`
+After each interview round, you can update the status accordingly. You have three options:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- **Hired**: If you've been hired, click on this option. A form will appear where you can add details about your package and any additional notes.
+- **Rejected**: If you've been rejected, click on this option.
+- **Next Round**: If there are more interview rounds to come, update the status accordingly.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Conclusion
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+With the Interview Journey Tracker, you can effectively manage and organize your job search process. Stay organized, keep track of your progress, and land your dream job!
