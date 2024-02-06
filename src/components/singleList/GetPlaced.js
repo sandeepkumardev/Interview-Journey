@@ -13,7 +13,7 @@ const useStyles = makeStyles(() => ({
     },
     backgroundColor: '#81c784',
     borderRadius: '10px',
-    padding: '4px',
+    padding: '6px 8px',
     color: '#000fff',
   },
 }));

@@ -44,7 +44,7 @@ export const DataProvider = ({ children }) => {
         return;
     }
 
-    const updatedData = CompanyData.map((c) => (c._id === _id ? c : item));
+    const updatedData = CompanyData.map((c) => (c._id === _id ? item : c));
     setCompanyData(updatedData);
   };
 
