@@ -1,4 +1,6 @@
 import React from 'react';
+import { get, set } from '../utils/localStorage';
+import { GET_PLACED, INTERVIEW_UPDATE, REJECTED, SHORTLISTED } from '../constants';
 
 const DataContext = React.createContext(null);
 
@@ -15,52 +17,50 @@ export const DataProvider = ({ children }) => {
 
   const updateData = (data) => {
     const { _id, type, res } = data;
-    let list = CompanyData.find((item) => item._id === _id);
+    let item = CompanyData.find((c) => c._id === _id);
 
     switch (type) {
-      case 'shortlisted':
-        list = { ...list, shortlisted: res };
+      case SHORTLISTED:
+        item = { ...item, shortlisted: res };
         break;
-      case 'rejected':
-        list = {
-          ...list,
+      case REJECTED:
+        item = {
+          ...item,
           rejected: res,
-          shortlisted: { ...list.shortlisted, reject: true },
+          shortlisted: { ...item.shortlisted, reject: true },
         };
         break;
-      case 'interviewUpdate': {
-        let updatedList = list.interview_round;
+      case INTERVIEW_UPDATE: {
+        let updatedList = item.interview_round;
         updatedList.push(res);
-        list = { ...list, interview_round: updatedList };
+        item = { ...item, interview_round: updatedList };
         break;
       }
-      case 'getPlaced':
-        list = { ...list, get_placed: res };
+      case GET_PLACED:
+        item = { ...item, get_placed: res };
         break;
 
       default:
         return;
     }
 
-    const updatedData = CompanyData.map((item) => (item._id === _id ? list : item));
-
+    const updatedData = CompanyData.map((c) => (c._id === _id ? c : item));
     setCompanyData(updatedData);
   };
 
   const deleteData = (data) => {
     const filteredList = CompanyData.filter((item) => item._id !== data);
+    if (!filteredList[0]) set([]);
     setCompanyData(filteredList);
   };
 
   React.useEffect(() => {
-    window.localStorage.setItem('companydata', JSON.stringify(CompanyData || []));
+    if (CompanyData.length > 0) set(CompanyData);
   }, [CompanyData]);
 
   React.useEffect(() => {
-    let data = JSON.parse(window.localStorage.getItem('companydata'));
-    if (data) {
-      setCompanyData(data);
-    }
+    let data = get();
+    if (data) setCompanyData(data);
   }, []);
 
   return (
