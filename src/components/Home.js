@@ -1,4 +1,5 @@
 import { useData } from '../context';
+import HomePlaceholder from './HomePlaceholder';
 import SingleList from './singleList';
 
 function Home() {
@@ -8,6 +9,8 @@ function Home() {
       {CompanyData.map((company) => (
         <SingleList key={company._id} data={company} />
       ))}
+
+      {!CompanyData.length && <HomePlaceholder />}
     </div>
   );
 }
