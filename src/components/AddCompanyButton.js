@@ -87,7 +87,7 @@ function NewDialog({ open, handleClose }) {
       setdesc('');
       handleClose();
     } else {
-      seterror('Enter Company Name !');
+      seterror('Enter Company Name!');
     }
   };
 

@@ -25,7 +25,7 @@ export default function RejectedDialog({ rejectedDialog, rejectedDialogClose, _i
             id="outlined-multiline-static"
             placeholder="Optional"
             multiline
-            rows={3}
+            minRows={3}
             value={text}
             onChange={(e) => settext(e.target.value)}
             style={{ width: '100%' }}
